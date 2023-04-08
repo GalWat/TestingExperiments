@@ -1,10 +1,12 @@
-from framework import pages
+from framework.pages import qase as qase_pages
+from framework.pages.base import BasePage
+
 from framework.elements.text_input import TextInput
 from framework.elements.button import Button
 from config.config import settings
 
 
-class LoginPage(pages.base.BasePage):
+class LoginPage(BasePage):
     _url = f"{settings.qase.ui.base_url}/login"
 
     def __init__(self, driver):
@@ -18,4 +20,4 @@ class LoginPage(pages.base.BasePage):
         self.email_inp.fill(email)
         self.password_inp.fill(password)
         self.login_btn.click()
-        return pages.projects.ProjectsPage(self.driver)
+        return qase_pages.projects.ProjectsPage(self.driver)

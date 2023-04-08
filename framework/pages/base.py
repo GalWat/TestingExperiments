@@ -1,6 +1,7 @@
 from selenium.webdriver.remote.webdriver import WebDriver
-from urllib.parse import urlparse, urlencode, urljoin
+from urllib.parse import urlparse, urlencode
 from framework.elements.base import BaseElement
+from posixpath import join as urljoin
 
 
 class BasePage:

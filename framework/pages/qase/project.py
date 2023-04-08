@@ -1,9 +1,10 @@
-from framework import pages
+from framework.pages.base import BasePage
+
 from framework.elements.label import Label
 from config.config import settings
 
 
-class ProjectPage(pages.base.BasePage):
+class ProjectPage(BasePage):
     _url = f"{settings.qase.ui.base_url}/project"
 
     def __init__(self, driver):

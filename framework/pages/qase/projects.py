@@ -1,8 +1,9 @@
-from framework import pages
+from framework.pages import qase as qase_pages
+from framework.pages.base import BasePage
+
 from framework.elements.button import Button
 from config.config import settings
 from framework.elements.text_input import TextInput
-from framework.pages.project import ProjectPage
 
 
 class CreateNewProjectWindow:
@@ -20,10 +21,10 @@ class CreateNewProjectWindow:
         self.project_name_inp.fill(description)
         self.create_btn.click()
 
-        return pages.projects.ProjectPage(self.driver)
+        return qase_pages.project.ProjectPage(self.driver)
 
 
-class ProjectsPage(pages.base.BasePage):
+class ProjectsPage(BasePage):
     _url = f"{settings.qase.ui.base_url}/projects"
 
     def __init__(self, driver):
