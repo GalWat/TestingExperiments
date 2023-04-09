@@ -5,7 +5,7 @@ from .projects import ProjectsHandlers
 
 class QaseApi(BaseApi):
     def __init__(self):
-        super(BaseApi, self).__init__(service_url=settings.qase.api.url)
+        super().__init__(service_url=settings.qase.api.base_url)
         self.global_headers = {
             "Token": settings.qase.api.token
         }

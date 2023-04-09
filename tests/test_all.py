@@ -29,7 +29,6 @@ def test_e2e(driver):
     assert project_pg.project_code.text.startswith(project_code)
 
 
-@pytest.mark.skip("API available only for paid accounts")
 def test_with_api_and_ui_e2e(driver):
     qase_api = QaseApi()
 
@@ -44,11 +43,12 @@ def test_with_api_and_ui_e2e(driver):
     api_project_code = response["result"]["code"]
     assert api_project_code == project_code
 
+    login_pg = LoginPage(driver).open_by_url()
+    login_pg.login(settings.qase.login, settings.qase.password)
     project_pg = ProjectPage(driver).open_by_url(resource=api_project_code)
     assert project_pg.project_code.text.startswith(api_project_code)
 
 
-@pytest.mark.skip("API available only for paid accounts")
 def test_with_api_e2e(driver):
     qase_api = QaseApi()
 
